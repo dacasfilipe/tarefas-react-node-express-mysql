@@ -1,35 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+//import './App.css';
+//import MenuSuperior from './components/MenuSuperior';
+import InclusaoLivros from './components/InclusaoLivros';
+import {Routes,Route} from 'react-router-dom';
+//import ManutencaoLivros from './components/ManutencaoLivros';
+//import ResumoLivros from './components/ResumoLivros';
+const App = () => {
+  return(  //tudo que vai aqui no return é o que aparece na aplicação
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React = Sucesso</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path="/" element={<InclusaoLivros/>}/>
+        
+      </Routes>
     </>
   )
 }
-
-export default App
+//Serão criados 2 componentes para essa aplicação
+//MenuSuperior.js
+//InclusaoLivros.js
+export default App;
