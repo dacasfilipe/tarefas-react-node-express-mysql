@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import { useState, useEffect } from "react";
 import { api } from "../config_axios";
-//import ItemLista from "./ItemLista";  
+import ItemLista from "./ItemLista";  
 
 const ManutencaoTarefas = () => {
     //servem para manipular os dados do formulário
@@ -74,12 +74,12 @@ const alterar = async (id,titulo,index) => {
        <div className="container">
         <div className="row">
             <div className="col-sm-7">
-                <h4 className="fst-italic mt-3">Manutenção</h4>
+                <h4 className="fst-italic mt-3">Manutenção de Tarefas</h4>
             </div>
             <div className="col-sm-5">
                 <form onSubmit={handleSubmit(filtrarLista)}>
                     <div className="input-group mt-3">
-                        <input type="text" className="form-control" placeholder="Titulo ou Autor" required {...register("palavra")} />
+                        <input type="text" className="form-control" placeholder="Titulo" required {...register("palavra")} />
                         <input type="submit" className="btn btn-primary" value="Pesquisar" />
                         <input type="button" className="btn btn-danger" value="Todos" onClick={()=>{reset({palavra:""});obterLista();}}/>
                     </div>
@@ -92,25 +92,25 @@ const alterar = async (id,titulo,index) => {
                 <tr>
                     <th>Cód.</th>
                     <th>Titulo</th>
-                    <th>Autor</th>
-                    <th>Ano</th>
-                    <th>Preço</th>
-                    <th>Foto</th>
+                    <th>Descrição</th>
+                    <th>Status</th>
+                    <th>Data Criação</th>
+                    <th>Data Limite</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                {livros.map((livro) => (
+                {tarefas.map((Tarefa) => (
                     <ItemLista
-                        key={livro.id}
-                        id={livro.id}
-                        titulo={livro.titulo}
-                        autor={livro.autor}
-                        ano={livro.ano}
-                        preco={livro.preco}
-                        foto={livro.foto}
-                        excluirClick={()=>excluir(livro.id,livro.titulo)}
-                        alterarClick={()=>alterar(livro.id,livro.titulo)}
+                        key={tarefa.id}
+                        id={tarefa.id}
+                        titulo={tarefa.titulo}
+                        descricao={tarefa.descricao}
+                        status={tarefa.status}
+                        data_criacao={tarefa.data_criacao}
+                        data_limite={tarefa.data_limite}
+                        excluirClick={()=>excluir(tarefa.id,tarefa.titulo)}
+                        alterarClick={()=>alterar(tarefa.id,tarefa.titulo)}
                     />
                 ))}
             </tbody>
