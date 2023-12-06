@@ -100,7 +100,7 @@ const alterar = async (id,titulo,index) => {
                 </tr>
             </thead>
             <tbody>
-                {tarefas.map((Tarefa) => (
+                {tarefas.map((tarefa) => (
                     <ItemLista
                         key={tarefa.id}
                         id={tarefa.id}

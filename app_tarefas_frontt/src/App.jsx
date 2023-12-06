@@ -7,7 +7,8 @@ const App = () => {
     <>
       <Router>
       <Routes>
-        <Route exact path="/" Component={cadastrar_tarefas}/>
+        <Route exact path="/" Component={manutencao_tarefas}/>
+        
       </Routes>
       </Router>
     </>
