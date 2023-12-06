@@ -52,7 +52,7 @@ const excluir = async(id,titulo) => {
 
 //alterar os registros
 const alterar = async (id,titulo,index) => {
-    const novoStatus = prompt(`Digite o novo status da tarefa ${titulo}`));
+    const novoStatus = prompt(`Digite o novo status da tarefa ${titulo}`);
     if (novoStatus == "" ) {
         alert('Digite um status válido!(status em branco)')
         return;
