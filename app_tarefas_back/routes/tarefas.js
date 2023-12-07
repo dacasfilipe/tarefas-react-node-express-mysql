@@ -66,7 +66,8 @@ router.post('/', async (req, res) => {
 
 //PUT Atualiza uma tarefa pelo ID
 router.put('/:id', async (req, res) => {
-    sequelize.query(`UPDATE tarefas SET descricao = ${req.body.descricao} WHERE id = ${req.params.id}`)
+    sequelize.query(`UPDATE tarefas SET status = ? WHERE id = ?`,
+    { replacements: [req.body.status, req.params.id] })
     .then(([results, metadata]) => {
         if(metadata.affectedRows === 0){
             res.status(404).json({

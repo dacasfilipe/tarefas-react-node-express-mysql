@@ -41,10 +41,11 @@ const excluir = async(id,titulo) => {
         return;
     }
     try{
+        console.log("id é:"+id)
         await api.delete(`tarefas/${id}`);
         //formar uma nova lista de tarefas sem a tarefa que foi excluida
         setTarefas(tarefas.filter(Tarefas => tarefas.id !== id));
-        
+        location.reload();
     }catch(error){
         alert(`Erro: ..Não foi possível excluir a tarefa ${titulo}: ${error}`);
     }
@@ -60,11 +61,14 @@ const alterar = async (id,titulo,index) => {
     try{//captura os erros 
         //chamando o backend e passando os dados
         await api.put(`tarefas/${id}`,{status: novoStatus});
+        
         const TarefasAtualizadas = [...tarefas];
-        const indiceTarefas = TarefasAtualizadas.findIndex(Tarefas => tarefa.id === id);
-        TarefasAtualizadas[indiceTarefas].status = novoStatus;
+        const indiceTarefas = TarefasAtualizadas.find(Tarefas => Tarefas.id === id);
+        console.log("indice tarefa:"+indiceTarefas);
+        TarefasAtualizadas[indiceTarefas.id].status = novoStatus;
         setTarefas(TarefasAtualizadas);
         obterLista();
+        location.reload();
     }catch(error){
         alert(`Erro: ..Não foi possível alterar a tarefa ${titulo}: ${error}`);
     }
