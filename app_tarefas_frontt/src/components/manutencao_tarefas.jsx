@@ -120,4 +120,4 @@ const alterar = async (id,titulo,index) => {
     );
 };
 
-export default ManutencaoLivros;
+export default ManutencaoTarefas;
