@@ -8,7 +8,7 @@ const Cadastrar_tarefa = () => {
 
   const salvar = async (campos) => {
     try {
-      const response = await api.post("tarefa", campos);
+      const response = await api.post("tarefas", campos);
       setAviso(`Tarefa cadastrada com sucesso!" ${response.data.id}`);
     } catch (error) {
       setAviso("Erro ao cadastrar tarefa!");

@@ -47,7 +47,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     sequelize.query(`INSERT INTO tarefas (titulo, descricao, status, data_criacao, data_limite) VALUES (?, ?, ?, ?, ?)`, 
     
-        { replacements: [req.body.titulo, req.body.descricao, req.body.status, new Date(), new Date()] }
+        { replacements: [req.body.titulo, req.body.descricao, req.body.status, req.body.data_criacao, req.body.data_limite] }
     )
     .then(([results, metadata]) => {
         res.status(201).json({
