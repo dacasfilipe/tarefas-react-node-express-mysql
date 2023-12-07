@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { api } from "../config_axios";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const Cadastrar_tarefa = () => {
   const { register, handleSubmit } = useForm();
