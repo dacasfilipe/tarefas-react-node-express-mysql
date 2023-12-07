@@ -1,4 +1,3 @@
-// Componente do formulário de login
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 const FormularioLogin = () => {
@@ -35,9 +34,21 @@ const FormularioLogin = () => {
   
     return (
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Usuário" value={usuario} onChange={(e) => setUsuario(e.target.value)} />
-        <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
-        <button type="submit">Entrar</button>
+        <div className="container-fluid">
+          <div className="row align-items-center">
+            <div className="col-md-6">
+              <input type="text" placeholder="Usuário" value={usuario} onChange={(e) => setUsuario(e.target.value)} className="form-control" />
+            </div>
+            <div className="col-md-6">
+              <input type="password" placeholder="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="form-control" />
+            </div>
+          </div>
+          <div className="row align-items-center">
+            <div className="col-md-12">
+              <button type="submit" className="btn btn-primary">Entrar</button>
+            </div>
+          </div>
+        </div>
       </form>
     );
   };
