@@ -33,7 +33,7 @@ app.use(cookieParser());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/usuarios', usuarioRouter);
-app.use('/tarefa', tarefaRouter);
+app.use('/tarefas', tarefaRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
