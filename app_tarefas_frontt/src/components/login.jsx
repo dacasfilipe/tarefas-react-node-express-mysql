@@ -4,20 +4,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { api } from "../config_axios";
 
 const FormularioLogin = () => {
-    const [usuario, setUsuario] = useState("");
+    const [username, setUsername] = useState("");
     const [senha, setSenha] = useState("");
     const { login } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        if (usuario.trim() === "" || senha.trim() === "") {
+        if (username.trim() === "" || senha.trim() === "") {
             alert("Preencha todos os campos!");
             return;
         }
     
         try {
-            const response = await api.post("/login", { usuario, senha });
+            const response = await api.post("/login", { username, senha });
             if (response.status === 200) {
                 login();
             } else {
@@ -38,8 +38,8 @@ const FormularioLogin = () => {
                     <div className="col-md-7 col-lg-5 col-xl-5 offset-xl-1">   
                         <form onSubmit={handleSubmit}>
                             <div className="form-outline mb-4">
-                                <input type="text" id="user" className="form-control form-control-lg" value={usuario} onChange={(e) => setUsuario(e.target.value)} />
-                                <label className="form-label" htmlFor="user">Usuário</label>
+                                <input type="text" id="username" className="form-control form-control-lg" value={username} onChange={(e) => setUsername(e.target.value)} />
+                                <label className="form-label" htmlFor="username">Usuário</label>
                             </div>
                             <div className="form-outline mb-4">
                                 <input type="password" id="senha" className="form-control form-control-lg" value={senha} onChange={(e) => setSenha(e.target.value)} />

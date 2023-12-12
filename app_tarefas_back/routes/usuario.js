@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Usuario = require('../models/usuario');
 const sequelize = require('../sequelize');
-
+const bcrypt = require('bcrypt');
 
 //GET Retorna tarefas com paginação e ordenação
 router.get('/', async (req, res) => {
@@ -45,23 +45,24 @@ router.get('/:id', async (req, res) => {
 
 //POST Cria uma tarefa
 router.post('/', async (req, res) => {
-    sequelize.query(`INSERT INTO usuarios (usarname, email, senha) VALUES (?, ?, ?)`, 
+    try {
+        // Encriptar a senha
+        const senhaEncriptada = await bcrypt.hash(req.body.senha, 10); // 10 é o número de rounds para gerar o salt
+    sequelize.query(`INSERT INTO usuarios (username, email, senha, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?)`, 
     
-        { replacements: [req.body.usarname, req.body.email, req.body.senha] }
+        { replacements: [req.body.username, req.body.email, senhaEncriptada,new Date(), new Date() ] }
     )
-    .then(([results, metadata]) => {
+    
         res.status(201).json({
-            sucess: true,
             success: true,
-            message: "usuario criada com sucesso",
+            message: "usuario criado com sucesso",
         });
-    }).catch((error) => {
+    }catch(error){
         res.status(500).json({
-            sucess: false,
             success: false,
             message: error.message,
         });
-    });
+    }
 });
 
 //PUT Atualiza uma tarefa pelo ID

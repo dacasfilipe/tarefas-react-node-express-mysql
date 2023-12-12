@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
     const { username, senha } = req.body;
-
+    console.log(username,senha);
     try {
         const user = await Usuario.findOne({ where: { username } });
 
