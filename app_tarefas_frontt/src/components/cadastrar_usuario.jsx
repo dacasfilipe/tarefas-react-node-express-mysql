@@ -3,13 +3,14 @@ import { api } from "../config_axios";
 import { useState } from "react";
 
 const Cadastrar_Usuario = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const [aviso, setAviso] = useState("");
 
   const salvar = async (campos) => {
     try {
       const response = await api.post("usuarios", campos);
-      setAviso(`Usuário cadastrado com sucesso!" ${response.data.id}`);
+      setAviso(`Usuário cadastrado com sucesso!"`);
+      reset();
     } catch (error) {
       setAviso("Erro ao cadastrar usuário!");
     }

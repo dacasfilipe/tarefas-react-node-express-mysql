@@ -3,13 +3,14 @@ import { api } from "../config_axios";
 import { useState } from "react";
 
 const Cadastrar_tarefa = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset} = useForm();
   const [aviso, setAviso] = useState("");
 
   const salvar = async (campos) => {
     try {
       const response = await api.post("tarefas", campos);
-      setAviso(`Tarefa cadastrada com sucesso!" ${response.data.id}`);
+      setAviso(`Tarefa cadastrada com sucesso!"`);
+      reset();
     } catch (error) {
       setAviso("Erro ao cadastrar tarefa!");
     }

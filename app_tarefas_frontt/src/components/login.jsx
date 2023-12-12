@@ -45,13 +45,7 @@ const FormularioLogin = () => {
                                 <input type="password" id="senha" className="form-control form-control-lg" value={senha} onChange={(e) => setSenha(e.target.value)} />
                                 <label className="form-label" htmlFor="senha">Senha</label>
                             </div>
-                            <div className="d-flex justify-content-around align-items-center mb-4">
-                                <div className="form-check">
-                                    <input className="form-check-input" type="checkbox" value="" id="form1Example3" />
-                                    <label className="form-check-label" htmlFor="form1Example3"> Lembre-me</label>
-                                </div>
-                                <a href="#!">Esqueceu a senha?</a>
-                            </div>
+                           
                             <button type="submit" className="btn btn-primary btn-lg btn-block">Login</button>
                             
                             {/* Botões de mídia social */}
