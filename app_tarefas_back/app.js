@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 // var logger = require('morgan');
 var usuarioRouter = require('./routes/usuario');
 var tarefaRouter = require('./routes/tarefas');
+var loginRouter = require('./routes/tarefas');
 var app = express();
 const PORT =  3001;
 // importand o sequelize
@@ -34,6 +35,7 @@ app.use(cookieParser());
 
 app.use('/usuarios', usuarioRouter);
 app.use('/tarefas', tarefaRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
