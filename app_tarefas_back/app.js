@@ -7,7 +7,11 @@ var usuarioRouter = require('./routes/usuario');
 var tarefaRouter = require('./routes/tarefas');
 var loginRouter = require('./routes/login');
 var app = express();
-const PORT =  3001;
+//const PORT =  3001;
+
+//porta usada para fazer o deploy
+const PORT = process.env.PORT || 3001;
+
 // importand o sequelize
 const { Sequelize } = require('sequelize');
 const sequelize = require('./sequelize');
