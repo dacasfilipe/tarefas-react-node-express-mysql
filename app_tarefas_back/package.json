@@ -1,11 +1,9 @@
 {
   "name": "app-tarefas",
   "version": "1.0.0",
-  "engines": {
-    "node": "18.x" },
   "scripts": {
-    "start": "node app.js",
-    "devstart": "nodemon ./bin/www"
+    "start": "node app.js"
+    
   },
   "dependencies": {
     "-": "^0.0.1",
